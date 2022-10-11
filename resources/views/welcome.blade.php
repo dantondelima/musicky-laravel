@@ -4,9 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>1 Job</title>
+        <title>Musicky</title>
     </head>
     <body>
-        <div id="root"></div>
+        <div id="root">Teste</div>
     </body>
 </html>
