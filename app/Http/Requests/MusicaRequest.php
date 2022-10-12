@@ -13,38 +13,19 @@ class MusicaRequest extends FormRequest
 
     public function rules()
     {
-        switch ($this->method()) {
-            case 'POST':
-            {
-                return [
-                    'nome' => 'required',
-                    'email' => 'required|unique:admins,email',
-                    'password' => 'required|confirmed',
-                    'ativo' => 'required',
-                ];
-            }
-            case 'PUT':
-            {
-                return [
-                    'nome' => 'required',
-                    'email' => 'required|unique:admins,email,'.$this->admin->id,
-                    'password' => 'confirmed',
-                    'ativo' => 'required',
-                ];
-            }
-            default: break;
-        }
+        return [
+            'nome' => 'required',
+            'album_id' => 'required',
+            'artista_id' => 'required',
+        ];
     }
 
     public function messages()
     {
         return [
             'nome.required' => 'O nome é obrigatório',
-            'email.required' => 'O email é obrigatório',
-            'email.unique' => 'Email já cadastrado',
-            'password.required' => 'A senha é obrigatória',
-            'password.confirmed' => 'Senhas não conferem',
-            'ativo.required' => 'O status é obrigatório',
+            'album_id.required' => 'O álbum é obrigatório',
+            'artista_id.required' => 'O artista é obrigatório',
         ];
     }
 }

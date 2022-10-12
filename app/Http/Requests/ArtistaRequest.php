@@ -38,6 +38,7 @@ class ArtistaRequest extends FormRequest
     {
         return [
             'nome.required' => 'O nome é obrigatório',
+            'nome.unique' => 'O artista já existe',
             'idade.required' => 'A idade é obrigatória',
             'data_inicio_carreira.required' => 'A data de início da carreira é obrigatória',
         ];
