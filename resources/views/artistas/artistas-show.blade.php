@@ -1,10 +1,10 @@
-@extends('admin.layouts.admin')
+@extends('layouts.admin')
 
-@section('title', 'Visualizar recrutador')
+@section('title', 'Visualizar artista')
 
 @section('main-content')
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Recrutador - {{ $recrutador->nome }}</h1>
+    <h1 class="h3 mb-4 text-gray-800">artista - {{ $artista->nome }}</h1>
 
     <div class="row justify-content-center">
 
@@ -13,39 +13,24 @@
             <div class="card shadow mb-4">
 
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Visualizar recrutador</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Visualizar artista</h6>
                 </div>
 
                 <div class="card-body">
                     <div class="h5 ml-3 font-weight-bold text-primary text-uppercase mb-1">
                         Nome:
                     </div>
-                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $recrutador->nome }}</div>
+                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $artista->nome }}</div>
                     <hr class="sidebar-divider mb-1">
                     <div class="h5 ml-3 font-weight-bold text-primary text-uppercase mb-1">
-                        CPF:
+                        Idade:
                     </div>
-                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $recrutador->cpf }}</div>
+                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $artista->idade }}</div>
                     <hr class="sidebar-divider mb-1">
-                    <div class="h5 ml-3 mt-2 font-weight-bold text-primary text-uppercase mb-1">
-                        Email:
+                    <div class="h5 ml-3 font-weight-bold text-primary text-uppercase mb-1">
+                        Data de início da carreira:
                     </div>
-                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $recrutador->email }}</div>
-                    <hr class="sidebar-divider mb-1">
-                    <div class="h5 ml-3 mt-2 font-weight-bold text-primary text-uppercase mb-1">
-                        Empresa:
-                    </div>
-                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $recrutador->empresa->razao_social }}</div>
-                    <hr class="sidebar-divider mb-1">
-                    <div class="h5 ml-3 mt-2 font-weight-bold text-primary text-uppercase mb-3">
-                        Status:
-                    </div>
-                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $recrutador->ativo == 1?"Ativo":"Inativo" }}</div>
-                    <hr class="sidebar-divider mb-1">
-                    <div class="h5 ml-3 mt-2 font-weight-bold text-primary text-uppercase mb-3">
-                        Confirmado?
-                    </div>
-                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $recrutador->confirmado == 1?"Sim":"Não" }}</div>
+                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $artista->data_inicio_carreira->format('d/m/Y') }}</div>
                 </div>
 
                 <!-- Button -->

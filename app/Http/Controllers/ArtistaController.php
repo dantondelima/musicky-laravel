@@ -46,6 +46,6 @@ class ArtistaController extends Controller
     {
         $artista->delete();
 
-        return redirect('artistas.index')->with('success', 'Artista excluído com sucesso');
+        return redirect()->route('artista.index')->with('success', 'Artista excluído com sucesso');
     }
 }

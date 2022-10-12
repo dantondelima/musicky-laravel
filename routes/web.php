@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::resource('artista', 'ArtistaController')->parameters(['artista' => 'artista']);
+Route::resource('album', 'AlbumController')->parameters(['album' => 'album']);
+Route::resource('musica', 'MusicaController')->parameters(['musica' => 'musica']);

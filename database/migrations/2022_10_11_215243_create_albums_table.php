@@ -17,6 +17,7 @@ class CreateAlbumsTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->float('valor');
+            $table->string('capa');
             $table->timestamp('data_lancamento')->nullable();
             $table->unsignedInteger('artista_id');
             $table->foreign('artista_id')->references('id')->on('artistas');

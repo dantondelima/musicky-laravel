@@ -14,4 +14,8 @@ class Artista extends Model
     protected $fillable = [
         'nome', 'idade', 'data_inicio_carreira'
     ];
+
+    protected $dates = [
+        'data_inicio_carreira'
+    ];
 }

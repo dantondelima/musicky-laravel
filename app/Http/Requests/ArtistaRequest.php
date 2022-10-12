@@ -18,7 +18,7 @@ class ArtistaRequest extends FormRequest
             {
                 return [
                     'nome' => 'required|unique:artistas,nome',
-                    'idade' => 'required|number',
+                    'idade' => 'required|numeric',
                     'data_inicio_carreira' => 'required',
                 ];
             }
@@ -26,7 +26,7 @@ class ArtistaRequest extends FormRequest
             {
                 return [
                     'nome' => 'required|unique:artistas,nome,'.$this->artista->id,
-                    'idade' => 'required|number',
+                    'idade' => 'required|numeric',
                     'data_inicio_carreira' => 'required',
                 ];
             }
