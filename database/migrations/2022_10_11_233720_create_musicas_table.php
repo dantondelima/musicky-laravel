@@ -17,7 +17,7 @@ class CreateMusicasTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->unsignedInteger('album_id');
-            $table->foreign('album_id')->references('id')->on('albuns');
+            $table->foreign('album_id')->references('id')->on('albuns')->onDelete('cascade');
             $table->timestamps();
         });
     }

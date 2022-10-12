@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AlbumRequest;
 use App\Models\Album;
+use App\Models\Artista;
 
 class AlbumController extends Controller
 {
@@ -16,11 +17,13 @@ class AlbumController extends Controller
 
     public function create()
     {
-        return view('albuns.albuns-create');
+        $artistas = Artista::orderby('nome', 'asc')->get();
+        return view('albuns.albuns-create')->with('artistas', $artistas);
     }
 
     public function store(AlbumRequest $request)
     {
+        $request['capa'] = "teste.png";
         Album::create($request->all());
         return back()->with('success', 'Álbum cadastrado com sucesso');
     }
@@ -32,11 +35,13 @@ class AlbumController extends Controller
 
     public function edit(Album $album)
     {
-        return view('albuns.albuns-edit')->with('album', $album);
+        $artistas = Artista::orderby('nome', 'asc')->get();
+        return view('albuns.albuns-edit')->with(['artistas' => $artistas, 'album' => $album]);
     }
 
     public function update(AlbumRequest $request, Album $album)
     {
+        $request['capa'] = "teste.png";
         $album->update($request->all());
 
         return back()->with('success', 'Álbum atualizado com sucesso');

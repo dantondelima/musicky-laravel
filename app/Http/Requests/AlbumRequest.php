@@ -17,19 +17,21 @@ class AlbumRequest extends FormRequest
             case 'POST':
             {
                 return [
-                    'nome' => 'required',
-                    'email' => 'required|unique:admins,email',
-                    'password' => 'required|confirmed',
-                    'ativo' => 'required',
+                    'nome' => 'required|unique:albuns,nome',
+                    'valor' => 'required',
+                    'data_lancamento' => 'required',
+                    'artista_id' => 'required',
+                    // 'capa' => 'required',
                 ];
             }
             case 'PUT':
             {
                 return [
-                    'nome' => 'required',
-                    'email' => 'required|unique:admins,email,'.$this->admin->id,
-                    'password' => 'confirmed',
-                    'ativo' => 'required',
+                    'nome' => 'required|unique:albuns,nome,'.$this->album->id,
+                    'valor' => 'required',
+                    'data_lancamento' => 'required',
+                    'artista_id' => 'required',
+                    // 'capa' => 'required',
                 ];
             }
             default: break;
@@ -40,11 +42,11 @@ class AlbumRequest extends FormRequest
     {
         return [
             'nome.required' => 'O nome é obrigatório',
-            'email.required' => 'O email é obrigatório',
-            'email.unique' => 'Email já cadastrado',
-            'password.required' => 'A senha é obrigatória',
-            'password.confirmed' => 'Senhas não conferem',
-            'ativo.required' => 'O status é obrigatório',
+            'valor.required' => 'O valor é obrigatório',
+            'nome.unique' => 'Álbum já cadastrado',
+            'data_lancamento.required' => 'A data de lançamento é obrigatória',
+            'artista_id.required' => 'O artista é obrigatório',
+            'capa.required' => 'A capa é obrigatória',
         ];
     }
 }

@@ -12,6 +12,15 @@ class Album extends Model
     protected $table = "albuns";
 
     protected $fillable = [
-        'nome', 'valor', 'data_lancamento', 'artista_id'
+        'nome', 'valor', 'data_lancamento', 'artista_id', 'capa'
     ];
+
+    protected $dates = [
+        'data_lancamento'
+    ];
+
+    public function artista()
+    {
+        return $this->belongsTo(Artista::class);
+    }
 }

@@ -15,9 +15,9 @@ class CreateArtistaMusicaTable extends Migration
     {
         Schema::create('artista_musica', function (Blueprint $table) {
             $table->unsignedInteger('artista_id');
-            $table->foreign('artista_id')->references('id')->on('artistas');
+            $table->foreign('artista_id')->references('id')->on('artistas')->onDelete('cascade');
             $table->unsignedInteger('musica_id');
-            $table->foreign('musica_id')->references('id')->on('musicas');
+            $table->foreign('musica_id')->references('id')->on('musicas')->onDelete('cascade');
             $table->timestamps();
         });
     }

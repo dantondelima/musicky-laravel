@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
-@section('title', 'Visualizar recrutador')
+@section('title', 'Visualizar album')
 
 @section('main-content')
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Recrutador - {{ $recrutador->nome }}</h1>
+    <h1 class="h3 mb-4 text-gray-800">Álbum - {{ $album->nome }}</h1>
 
     <div class="row justify-content-center">
 
@@ -13,41 +13,30 @@
             <div class="card shadow mb-4">
 
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Visualizar recrutador</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Visualizar album</h6>
                 </div>
 
                 <div class="card-body">
                     <div class="h5 ml-3 font-weight-bold text-primary text-uppercase mb-1">
                         Nome:
                     </div>
-                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $recrutador->nome }}</div>
+                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $album->nome }}</div>
                     <hr class="sidebar-divider mb-1">
                     <div class="h5 ml-3 font-weight-bold text-primary text-uppercase mb-1">
-                        CPF:
+                        Valor:
                     </div>
-                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $recrutador->cpf }}</div>
+                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $album->valor }}</div>
                     <hr class="sidebar-divider mb-1">
-                    <div class="h5 ml-3 mt-2 font-weight-bold text-primary text-uppercase mb-1">
-                        Email:
+                    <div class="h5 ml-3 font-weight-bold text-primary text-uppercase mb-1">
+                        Data de lançamento:
                     </div>
-                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $recrutador->email }}</div>
+                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $album->data_lancamento->format('d/m/Y') }}</div>
                     <hr class="sidebar-divider mb-1">
-                    <div class="h5 ml-3 mt-2 font-weight-bold text-primary text-uppercase mb-1">
-                        Empresa:
+                    <div class="h5 ml-3 font-weight-bold text-primary text-uppercase mb-1">
+                        Artista:
                     </div>
-                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $recrutador->empresa->razao_social }}</div>
-                    <hr class="sidebar-divider mb-1">
-                    <div class="h5 ml-3 mt-2 font-weight-bold text-primary text-uppercase mb-3">
-                        Status:
-                    </div>
-                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $recrutador->ativo == 1?"Ativo":"Inativo" }}</div>
-                    <hr class="sidebar-divider mb-1">
-                    <div class="h5 ml-3 mt-2 font-weight-bold text-primary text-uppercase mb-3">
-                        Confirmado?
-                    </div>
-                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $recrutador->confirmado == 1?"Sim":"Não" }}</div>
+                    <div class="h5 ml-5 font-weight-bold text-gray-800 mb-3">{{ $album->artista->nome }}</div>
                 </div>
-
                 <!-- Button -->
                 <div class="pl-lg-6 mb-4 ml-4">
                     <div class="row ">

@@ -10,13 +10,13 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('artista.index') }}" >
+        <a class="nav-link collapsed" href="{{ route('album.index') }}" >
             <i class="fas fa-fw fa-cog"></i>
             <span>Álbuns</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('artista.index') }}" >
+        <a class="nav-link collapsed" href="{{ route('musica.index') }}" >
             <i class="fas fa-fw fa-cog"></i>
             <span>Músicas</span>
         </a>

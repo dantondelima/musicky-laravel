@@ -25,7 +25,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="razao_social">Nome<span class="small text-danger">*</span></label>
+                                        <label class="form-control-label" for="nome">Nome<span class="small text-danger">*</span></label>
                                         <input type="text" class="form-control form-control-user{{ $errors->has('nome') ? ' is-invalid' : '' }}" id="nome" required name="nome" placeholder="Exemplo nome" value="{{old('nome')}}">
                                         @if ($errors->has('nome'))
                                             <small class="text-danger" role="alert">
@@ -41,7 +41,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="razao_social">Idade<span class="small text-danger">*</span></label>
+                                        <label class="form-control-label" for="idade">Idade<span class="small text-danger">*</span></label>
                                         <input type="number" class="form-control form-control-user{{ $errors->has('idade') ? ' is-invalid' : '' }}" id="idade" required name="idade" placeholder="21.." value="{{old('idade')}}">
                                         @if ($errors->has('idade'))
                                             <small class="text-danger" role="alert">
@@ -57,7 +57,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="razao_social">Data de início da carreira<span class="small text-danger">*</span></label>
+                                        <label class="form-control-label" for="data_inicio_carreira">Data de início da carreira<span class="small text-danger">*</span></label>
                                         <input type="date" class="form-control form-control-user{{ $errors->has('data_inicio_carreira') ? ' is-invalid' : '' }}" id="data_inicio_carreira" required name="data_inicio_carreira" placeholder="21.." value="{{old('data_inicio_carreira')}}">
                                         @if ($errors->has('data_inicio_carreira'))
                                             <small class="text-danger" role="alert">

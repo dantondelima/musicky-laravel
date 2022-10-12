@@ -15,12 +15,12 @@ class CreateAlbumsTable extends Migration
     {
         Schema::create('albuns', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome');
+            $table->string('nome')->unique();
             $table->float('valor');
             $table->string('capa');
             $table->timestamp('data_lancamento')->nullable();
             $table->unsignedInteger('artista_id');
-            $table->foreign('artista_id')->references('id')->on('artistas');
+            $table->foreign('artista_id')->references('id')->on('artistas')->onDelete('cascade');
             $table->timestamps();
         });
     }

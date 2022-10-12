@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
-@section('title', 'Editar recrutador')
+@section('title', 'Editar album')
 
 @section('main-content')
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Recrutador - {{ $recrutador->nome }}</h1>
+    <h1 class="h3 mb-4 text-gray-800">Álbum - {{ $album->nome }}</h1>
 
     @include('inc.feedback')
 
@@ -15,19 +15,19 @@
             <div class="card shadow mb-4">
 
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Editar recrutador</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Editar álbum</h6>
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.recrutadors.update', ['recrutador' => $recrutador->id]) }}" autocomplete="off">
+                    <form method="POST" action="{{ route('album.update', ['album' => $album->id]) }}" autocomplete="off">
                         @csrf
                         @method('PUT')
                         <div class="pl-lg-4">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="nome">Nome<span class="small text-danger">*</span></label>
-                                        <input type="text" class="form-control form-control-user{{ $errors->has('nome') ? ' is-invalid' : '' }}" id="nome" required name="nome" placeholder="Exemplo nome" value="{{ $recrutador->nome }}">
+                                        <label class="form-control-label" for="razao_social">Nome<span class="small text-danger">*</span></label>
+                                        <input type="text" class="form-control form-control-user{{ $errors->has('nome') ? ' is-invalid' : '' }}" id="nome" required name="nome" placeholder="Exemplo nome" value="{{ $album->nome }}">
                                         @if ($errors->has('nome'))
                                             <small class="text-danger" role="alert">
                                                 <strong>{{ $errors->first('nome') }}</strong>
@@ -37,94 +37,55 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="pl-lg-4">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="cpf">CPF<span class="small text-danger">*</span></label>
-                                        <input type="text" class="form-control form-control-user{{ $errors->has('cpf') ? ' is-invalid' : '' }}" id="cpf" required name="cpf" placeholder="000.000.000-00" value="{{ $recrutador->cpf }}">
-                                        @if ($errors->has('cpf'))
+                                        <label class="form-control-label" for="razao_social">Valor:<span class="small text-danger">*</span></label>
+                                        <input type="number" step="any" class="form-control form-control-user{{ $errors->has('valor') ? ' is-invalid' : '' }}" id="valor" required name="valor" value="{{ $album->valor }}">
+                                        @if ($errors->has('valor'))
                                             <small class="text-danger" role="alert">
-                                                <strong>{{ $errors->first('cpf') }}</strong>
+                                                <strong>{{ $errors->first('valor') }}</strong>
                                             </small>
                                         @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="pl-lg-4">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="email">Email<span class="small text-danger">*</span></label>
-                                        <input type="email" class="form-control form-control-user{{ $errors->has('email') ? ' is-invalid' : '' }}" id="email" required name="email" placeholder="exemplo@1job.com.br" value="{{ $recrutador->email }}">
-                                        @if ($errors->has('email'))
+                                        <label class="form-control-label" for="data_lancamento">Data de lançamento<span class="small text-danger">*</span></label>
+                                        <input type="date" class="form-control form-control-user{{ $errors->has('data_lancamento') ? ' is-invalid' : '' }}" id="data_lancamento" required name="data_lancamento" placeholder="21.." value="{{ $album->data_lancamento->format('Y-m-d') }}">
+                                        @if ($errors->has('data_lancamento'))
                                             <small class="text-danger" role="alert">
-                                                <strong>{{ $errors->first('email') }}</strong>
+                                                <strong>{{ $errors->first('data_lancamento') }}</strong>
                                             </small>
                                         @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="pl-lg-4">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="nome">Empresa<span class="small text-danger">*</span></label>
-                                        <select class="form-control form-control-user{{ $errors->has('empresa_id') ? ' is-invalid' : '' }}" name="empresa_id" id="empresa_id" >
-                                            <option value="">Selecione a empresa</option>
-                                            @foreach ($empresas as $empresa)
-                                                <option value="{{ $empresa->id }}" {{ $empresa->id == $recrutador->empresa_id? "selected":"" }}>{{ $empresa->razao_social }}</option>
+                                        <label class="form-control-label" for="nome">Artista<span class="small text-danger">*</span></label>
+                                        <select class="form-control form-control-user{{ $errors->has('artista_id') ? ' is-invalid' : '' }}" name="artista_id" id="artista_id" >
+                                            <option value="">Selecione o artista</option>
+                                            @foreach ($artistas as $artista)
+                                                <option value="{{ $artista->id }}" {{ $artista->id == $album->artista_id? "selected":"" }}>{{ $artista->nome }}</option>
                                             @endforeach
                                         </select>
-                                        @if ($errors->has('empresa_id'))
+                                        @if ($errors->has('artista_id'))
                                             <small class="text-danger" role="alert">
-                                                <strong>{{ $errors->first('empresa_id') }}</strong>
+                                                <strong>{{ $errors->first('artista_id') }}</strong>
                                             </small>
                                         @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pl-lg-4">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="nome">Senha (preencha apenas se deseja alterar)</label>
-                                        <input type="password" class="form-control form-control-user{{ $errors->has('password') ? ' is-invalid' : '' }}" id="password" name="password" placeholder="Digite sua senha">
-                                        @if ($errors->has('password'))
-                                            <small class="text-danger" role="alert">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </small>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pl-lg-4">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="nome">Confirmar senha (preencha apenas se deseja alterar)</label>
-                                        <input type="password" class="form-control form-control-user{{ $errors->has('password') ? ' is-invalid' : '' }}" id="password_confirmation" name="password_confirmation" placeholder="Confirme sua senha">
-                                        @if ($errors->has('password'))
-                                            <small class="text-danger" role="alert">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </small>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pl-lg-4">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="nome">Status (clique para alterar):<span class="small text-danger"></span></label>
-                                        <br>
-                                        <input type="hidden" name="ativo" value="1" id="status-field">
-                                        <input type="checkbox" checked data-toggle="toggle" data-on="Ativo" data-off="Inativo" data-onstyle="success" data-offstyle="danger" value="ativo" id="status">
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +112,7 @@
 @section('scripts')
 <script>
     $(document).ready(function(){
-        status = "{{ $recrutador->ativo }}";
+        status = "{{ $album->ativo }}";
 
         if(status == 1){
             $('#status').prop('checked', true).trigger('change');
