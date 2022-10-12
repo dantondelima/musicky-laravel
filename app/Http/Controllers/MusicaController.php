@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreAlbumRequest;
-use App\Http\Requests\UpdateAlbumRequest;
-use App\Models\Album;
+use App\Http\Requests\StoreMusicaRequest;
+use App\Http\Requests\UpdateMusicaRequest;
+use App\Models\Musica;
 
-class AlbumController extends Controller
+class MusicaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        $albuns = Album::all();
+        //
     }
 
     /**
@@ -31,10 +31,10 @@ class AlbumController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAlbumRequest  $request
+     * @param  \App\Http\Requests\StoreMusicaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAlbumRequest $request)
+    public function store(StoreMusicaRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class AlbumController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Album  $album
+     * @param  \App\Models\Musica  $musica
      * @return \Illuminate\Http\Response
      */
-    public function show(Album $album)
+    public function show(Musica $musica)
     {
         //
     }
@@ -53,10 +53,10 @@ class AlbumController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Album  $album
+     * @param  \App\Models\Musica  $musica
      * @return \Illuminate\Http\Response
      */
-    public function edit(Album $album)
+    public function edit(Musica $musica)
     {
         //
     }
@@ -64,11 +64,11 @@ class AlbumController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAlbumRequest  $request
-     * @param  \App\Models\Album  $album
+     * @param  \App\Http\Requests\UpdateMusicaRequest  $request
+     * @param  \App\Models\Musica  $musica
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAlbumRequest $request, Album $album)
+    public function update(UpdateMusicaRequest $request, Musica $musica)
     {
         //
     }
@@ -76,10 +76,10 @@ class AlbumController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Album  $album
+     * @param  \App\Models\Musica  $musica
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Album $album)
+    public function destroy(Musica $musica)
     {
         //
     }

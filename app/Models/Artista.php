@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Album extends Model
+class Artista extends Model
 {
     use HasFactory;
 
-    protected $table = "albuns";
+    protected $table = "artistas";
 
     protected $fillable = [
-        'nome', 'valor', 'data_lancamento', 'artista_id'
+        'nome', 'idade', 'data_inicio_carreira'
     ];
 }

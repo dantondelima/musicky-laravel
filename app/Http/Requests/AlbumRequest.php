@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminRequest extends FormRequest
+class AlbumRequest extends FormRequest
 {
     public function authorize()
     {
@@ -13,7 +13,7 @@ class AdminRequest extends FormRequest
 
     public function rules()
     {
-        switch($this->method()) {//cada método vai ter regras diferentes
+        switch ($this->method()) {
             case 'POST':
             {
                 return [
