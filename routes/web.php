@@ -20,3 +20,9 @@ Route::get('/', function () {
 Route::resource('artista', 'ArtistaController')->parameters(['artista' => 'artista']);
 Route::resource('album', 'AlbumController')->parameters(['album' => 'album']);
 Route::resource('musica', 'MusicaController')->parameters(['musica' => 'musica']);
+
+Route::prefix('api')->namespace('API')->as("api.")->group(function () {
+    Route::resource('artista', 'ArtistaController')->parameters(['artista' => 'artista']);
+    Route::resource('album', 'AlbumController')->parameters(['album' => 'album']);
+    Route::resource('musica', 'MusicaController')->parameters(['musica' => 'musica']);
+});
