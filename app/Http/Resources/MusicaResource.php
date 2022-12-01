@@ -14,6 +14,11 @@ class MusicaResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'nome' => $this->nome,
+            'album_id' => $this->album_id,
+            'artista_id' => $this->artistas()->pluck('id')
+        ];
     }
 }

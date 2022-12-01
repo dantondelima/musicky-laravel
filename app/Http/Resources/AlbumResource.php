@@ -14,6 +14,12 @@ class AlbumResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'nome' => $this->nome, 
+            'valor' => $this->valor, 
+            'data_lancamento' => $this->data_lancamento->format('Y-m-d'),
+            'artista_id' => $this->artista_id
+        ];
     }
 }
